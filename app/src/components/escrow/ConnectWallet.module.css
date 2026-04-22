@@ -1,0 +1,35 @@
+.connectBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.connected {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(34, 197, 94, 0.06);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 12px;
+}
+
+.address {
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: 'SF Mono', monospace;
+  color: var(--text-primary);
+}
+
+.viewLink {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--success);
+  text-decoration: none;
+}
+
+.viewLink:hover {
+  text-decoration: underline;
+}

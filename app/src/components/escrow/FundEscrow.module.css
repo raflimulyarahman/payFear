@@ -1,0 +1,43 @@
+.fundBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.funded {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: rgba(251, 191, 36, 0.06);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  border-radius: 12px;
+  animation: pulse-border 2s ease-in-out infinite;
+}
+
+.fundedLabel {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--amber-400, #fbbf24);
+  margin: 0;
+}
+
+.txLink {
+  font-size: 0.75rem;
+  color: var(--amber-400, #fbbf24);
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.txLink:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: rgba(251, 191, 36, 0.25); }
+  50% { border-color: rgba(251, 191, 36, 0.6); }
+}

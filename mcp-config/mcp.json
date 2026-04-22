@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "base-docs": {
+      "url": "https://docs.base.org/mcp"
+    },
+    "base-onchain": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@base-org/base-mcp"
+      ],
+      "env": {
+        "NETWORK": "base-mainnet"
+      }
+    }
+  }
+}
