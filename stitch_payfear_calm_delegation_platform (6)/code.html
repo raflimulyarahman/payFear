@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PayFear - Delegate Your Fears, Flawlessly</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#2a1700",
+                        "on-surface": "#e4e1e9",
+                        "tertiary": "#4edea3",
+                        "inverse-surface": "#e4e1e9",
+                        "primary-fixed": "#e9ddff",
+                        "surface-variant": "#35343a",
+                        "on-primary-fixed-variant": "#5516be",
+                        "on-secondary-container": "#5b3800",
+                        "outline": "#958ea0",
+                        "tertiary-container": "#00a572",
+                        "on-background": "#e4e1e9",
+                        "primary": "#d0bcff",
+                        "surface-container-highest": "#35343a",
+                        "inverse-primary": "#6d3bd7",
+                        "background": "#131318",
+                        "on-tertiary-container": "#00311f",
+                        "surface-container": "#1f1f25",
+                        "inverse-on-surface": "#303036",
+                        "surface-container-lowest": "#0e0e13",
+                        "surface-tint": "#d0bcff",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#cbc3d7",
+                        "on-primary-container": "#340080",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "on-secondary": "#472a00",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-tertiary-fixed": "#002113",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#d0bcff",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface": "#131318",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "secondary-fixed": "#ffddb8",
+                        "secondary-container": "#ee9800",
+                        "primary-container": "#a078ff",
+                        "on-primary-fixed": "#23005c",
+                        "secondary": "#ffb95f",
+                        "surface-container-high": "#2a292f",
+                        "surface-bright": "#39383e",
+                        "outline-variant": "#494454",
+                        "surface-container-low": "#1b1b20",
+                        "error": "#ffb4ab",
+                        "on-tertiary": "#003824",
+                        "error-container": "#93000a",
+                        "surface-dim": "#131318",
+                        "on-primary": "#3c0091"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1.5rem",
+                        "md": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #131318;
+            color: #e4e1e9;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-card {
+            background: rgba(53, 52, 58, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(149, 142, 160, 0.15);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% -20%, #340080 0%, #131318 70%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full flex justify-between items-center px-8 py-4 bg-[#131318]/80 backdrop-blur-xl z-50">
+<div class="text-2xl font-bold tracking-tight text-[#d0bcff] font-headline">PayFear</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-400 font-medium hover:text-white transition-all duration-300 ease-in-out" href="#">How It Works</a>
+<a class="text-slate-400 font-medium hover:text-white transition-all duration-300 ease-in-out" href="#">Browse</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-slate-400 font-medium hover:text-white transition-all duration-300">Log In</button>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0px_24px_48px_rgba(0,0,0,0.4)]">Post a Task</button>
+</div>
+</nav>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="hero-gradient px-8 md:px-20 py-24 mb-12">
+<div class="max-w-4xl">
+<h1 class="font-headline font-extrabold text-6xl md:text-8xl tracking-tight text-on-surface mb-8 leading-[1.1]">
+                    Delegate Your Fears, <span class="text-primary">Flawlessly</span>.
+                </h1>
+<p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl mb-12 leading-relaxed font-light">
+                    Handle uncomfortable calls, awkward returns, and social friction without the anxiety. Secure, anonymous, and escrow-protected.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-secondary text-on-secondary-fixed px-10 py-5 rounded-xl font-bold text-lg hover:brightness-110 transition-all duration-300 shadow-xl">
+                        Post a Task
+                    </button>
+<button class="border-2 border-outline/30 text-on-surface px-10 py-5 rounded-xl font-bold text-lg hover:bg-surface-container-high transition-all duration-300">
+                        Become an Executor
+                    </button>
+</div>
+</div>
+</section>
+<!-- Use Cases Bento Grid -->
+<section class="px-8 md:px-20 py-24 bg-surface-container-low">
+<div class="mb-16">
+<span class="font-label text-sm tracking-[0.2em] text-primary-fixed-dim uppercase font-semibold">Specialized Solutions</span>
+<h2 class="font-headline text-4xl md:text-5xl font-bold mt-4">Where Anxiety Ends.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<div class="md:col-span-8 glass-card rounded-md p-10 flex flex-col justify-between group overflow-hidden relative">
+<div class="relative z-10">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">call</span>
+</div>
+<h3 class="text-3xl font-headline font-bold mb-4">Uncomfortable Calls</h3>
+<p class="text-on-surface-variant text-lg max-w-md">Cancel subscriptions, negotiate medical bills, or challenge unfair charges. Our executors speak the language of corporate bureaucracy so you don't have to.</p>
+</div>
+<img class="absolute bottom-0 right-0 w-2/3 h-2/3 object-cover opacity-20 grayscale group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700 pointer-events-none" data-alt="Close-up of a vintage telephone receiver in a dark, moody setting with soft purple ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP6g0Pez6rVBBWs6ouOq83WlH1PchDUhhFax10xUpNNl2RBUDsPv571FpiZo5XGgkQzYGqYc3xFAhDgjq_ImxwBD1TosWT9sNAwjNQUp-xQ-dSz9V5YqjFVhLyabVi4shFiJmguJivLEPpLyu6Xk0J2Clrwh8UVjPy0IC5DesJJcLkeHTB3eVEngBVs-Zf5Cg896sO2Z1_5g8FRepYo0qko6uYhbWvEl5RjL5eyG9dz72zgjiimvW4RyjRSpxFT2AN_98ZlNv0WpQk"/>
+</div>
+<div class="md:col-span-4 bg-surface-container-high rounded-md p-10 flex flex-col group">
+<div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-secondary text-3xl">assignment_return</span>
+</div>
+<h3 class="text-3xl font-headline font-bold mb-4">Awkward Returns</h3>
+<p class="text-on-surface-variant text-lg">Returning a purchase in person can be stressful. We'll handle the interaction, the receipt, and the refund process seamlessly.</p>
+<div class="mt-auto pt-8">
+<div class="h-1 bg-surface-variant w-1/3"></div>
+</div>
+</div>
+<div class="md:col-span-4 bg-surface-container-highest rounded-md p-10 flex flex-col group">
+<div class="w-12 h-12 bg-tertiary/10 rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-tertiary text-3xl">diversity_3</span>
+</div>
+<h3 class="text-3xl font-headline font-bold mb-4">Social Buffers</h3>
+<p class="text-on-surface-variant text-lg">From breaking lease news to managing neighbor disputes, we provide a professional buffer for life's friction points.</p>
+</div>
+<div class="md:col-span-8 glass-card rounded-md p-10 flex items-center gap-12 group overflow-hidden">
+<div class="flex-1">
+<h3 class="text-3xl font-headline font-bold mb-4">Digital Stealth</h3>
+<p class="text-on-surface-variant text-lg">Your identity is shielded behind our encrypted layer. We act as your proxy, ensuring your personal details never enter the friction zone.</p>
+</div>
+<div class="hidden lg:block w-1/3 h-full rounded-md overflow-hidden">
+<img class="w-full h-full object-cover opacity-60" data-alt="Futuristic glowing digital mesh and circuit lines on a deep black background representing encryption and security" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJOL3ObLFujziyYGV8sysc59ZT7T1dhAuHei_7Y8zoI7o5wFd2yw5bfFwOZfNy2fyY-aKbJi3Cfjt1fFZJAvqluSV1ywUDkaLtV5mDVITpQp3IrzMlaDPOd0FbKQsx_EDytos-hUGzgqwjADo40nuCpDvz_wEn3fU2OUdfai3G8OXRSvU9PSqEne1P9DvgtGTES-Yi5KNKxJVBCgHO3z9FGsp6ly6Tz-KVyhc_KwKyfNIrs2Y6n5rPIVlLRplSRa6rAmJpbz6CsTnr"/>
+</div>
+</div>
+</div>
+</section>
+<!-- 4-Step Flow -->
+<section class="px-8 md:px-20 py-32 bg-surface">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-24">
+<h2 class="font-headline text-5xl font-bold mb-6">Simple. Secure. Silent.</h2>
+<div class="h-0.5 bg-surface-container-highest w-24 mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="relative">
+<span class="text-8xl font-black text-surface-container-high absolute -top-12 -left-4 z-0">01</span>
+<div class="relative z-10">
+<h4 class="text-xl font-bold mb-4 font-headline">Describe the Task</h4>
+<p class="text-on-surface-variant font-light">Tell us what needs to be handled. Be as specific as you like—or keep it brief.</p>
+</div>
+</div>
+<div class="relative">
+<span class="text-8xl font-black text-surface-container-high absolute -top-12 -left-4 z-0">02</span>
+<div class="relative z-10">
+<h4 class="text-xl font-bold mb-4 font-headline">Set Your Bounty</h4>
+<p class="text-on-surface-variant font-light">Choose what you're willing to pay. Funds are held in our secure escrow vault.</p>
+</div>
+</div>
+<div class="relative">
+<span class="text-8xl font-black text-surface-container-high absolute -top-12 -left-4 z-0">03</span>
+<div class="relative z-10">
+<h4 class="text-xl font-bold mb-4 font-headline">Select Executor</h4>
+<p class="text-on-surface-variant font-light">Pick a verified professional based on their success rate and specialized skills.</p>
+</div>
+</div>
+<div class="relative">
+<span class="text-8xl font-black text-surface-container-high absolute -top-12 -left-4 z-0">04</span>
+<div class="relative z-10">
+<h4 class="text-xl font-bold mb-4 font-headline">Release &amp; Breathe</h4>
+<p class="text-on-surface-variant font-light">Once the task is verified complete, release the funds. Peace of mind achieved.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust & Safety -->
+<section class="px-8 md:px-20 py-32 bg-surface-container-low border-t border-outline-variant/10">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="lg:w-1/2">
+<div class="bg-tertiary-container/20 text-tertiary px-4 py-2 rounded-full inline-flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span class="text-xs font-bold uppercase tracking-widest">Enterprise Grade Protection</span>
+</div>
+<h2 class="font-headline text-5xl font-bold mb-8 leading-tight">Your Peace of Mind is our <span class="text-tertiary">Only Priority.</span></h2>
+<p class="text-on-surface-variant text-xl mb-10 leading-relaxed">We built PayFear on the principle of radical protection. From escrow services to encrypted communication, your data and your money never leave the sanctuary.</p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="bg-surface-container-high p-3 rounded-lg">
+<span class="material-symbols-outlined text-tertiary">lock</span>
+</div>
+<div>
+<h5 class="font-bold text-lg">Secured by Escrow</h5>
+<p class="text-on-surface-variant text-sm">Payments are only released when you are 100% satisfied with the outcome.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-surface-container-high p-3 rounded-lg">
+<span class="material-symbols-outlined text-tertiary">masks</span>
+</div>
+<div>
+<h5 class="font-bold text-lg">Total Anonymity</h5>
+<p class="text-on-surface-variant text-sm">Executors never see your real phone number or email address.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 grid grid-cols-2 gap-4">
+<div class="glass-card p-8 rounded-md flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-4">payments</span>
+<p class="text-primary font-bold text-lg">Escrow Certified</p>
+</div>
+<div class="bg-surface p-8 rounded-md flex flex-col items-center text-center border border-tertiary/10">
+<span class="material-symbols-outlined text-tertiary text-5xl mb-4">shield</span>
+<p class="text-tertiary font-bold text-lg">256-bit AES</p>
+</div>
+<div class="bg-surface p-8 rounded-md flex flex-col items-center text-center border border-outline/10">
+<span class="material-symbols-outlined text-on-surface-variant text-5xl mb-4">support_agent</span>
+<p class="text-on-surface-variant font-bold text-lg">24/7 Dispute Resolution</p>
+</div>
+<div class="glass-card p-8 rounded-md flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-secondary text-5xl mb-4">stars</span>
+<p class="text-secondary font-bold text-lg">Verified Experts</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="px-8 md:px-20 py-32 text-center">
+<div class="max-w-3xl mx-auto glass-card p-16 rounded-xl relative overflow-hidden">
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-primary/10 blur-[100px] rounded-full"></div>
+<div class="absolute -bottom-24 -right-24 w-64 h-64 bg-secondary/10 blur-[100px] rounded-full"></div>
+<h2 class="font-headline text-4xl md:text-5xl font-bold mb-8">Ready to shed the weight?</h2>
+<p class="text-on-surface-variant text-xl mb-12">Join thousands of users who have reclaimed their mental energy.</p>
+<button class="bg-primary text-on-primary px-12 py-5 rounded-full font-bold text-xl hover:scale-105 transition-all duration-300 shadow-2xl">
+                    Post Your First Task
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="px-8 md:px-20 py-16 bg-surface-container-lowest text-on-surface-variant">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div>
+<div class="text-2xl font-black text-[#d0bcff] mb-2 font-headline">PayFear</div>
+<p class="text-sm opacity-60">The Digital Sanctuary for your social obligations.</p>
+</div>
+<div class="flex gap-12 text-sm">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Support</a>
+<a class="hover:text-primary transition-colors" href="#">Careers</a>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-outline-variant/5 text-xs opacity-40 flex justify-between">
+<span>© 2024 PayFear Inc. All rights reserved.</span>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-sm">public</span>
+<span>Global Ops</span>
+</div>
+</div>
+</footer>
+</body></html>

@@ -40,11 +40,23 @@ export const WARNING_KEYWORDS = [
 ];
 
 export const PROOF_TYPES = [
-  { id: 'SCREENSHOT', label: 'Screenshot' },
-  { id: 'PHOTO', label: 'Photo' },
-  { id: 'TEXT', label: 'Text Confirmation' },
-  { id: 'VIDEO', label: 'Video' },
+  { id: 'SCREENSHOT', label: 'Screenshot', icon: 'screenshot_monitor', description: 'Best for digital tasks — call logs, confirmation screens' },
+  { id: 'PHOTO', label: 'Photo', icon: 'photo_camera', description: 'Best for physical tasks — receipts, in-person proof' },
+  { id: 'TEXT', label: 'Text Confirmation', icon: 'chat', description: 'Quick validation — chat transcript, email reply' },
+  { id: 'VIDEO', label: 'Video', icon: 'videocam', description: 'When you need process or step-by-step evidence' },
 ];
+
+/**
+ * Smart defaults: pre-select the most relevant proof types based on category.
+ */
+export const DEFAULT_PROOFS_BY_CATEGORY = {
+  PHONE_CALLS:   ['SCREENSHOT', 'TEXT'],        // call log screenshot + text confirmation
+  SOCIAL:        ['PHOTO', 'TEXT'],              // photo of interaction + text confirmation
+  RETURN_REFUND: ['PHOTO', 'SCREENSHOT'],        // receipt photo + refund confirmation
+  NEGOTIATION:   ['SCREENSHOT', 'TEXT'],          // result screenshot + summary text
+  ADMIN_TASK:    ['SCREENSHOT', 'TEXT'],           // task completion screenshot + confirmation
+  OTHER:         ['SCREENSHOT'],                   // safe default
+};
 
 /**
  * Format a status string for display.

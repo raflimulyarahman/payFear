@@ -190,6 +190,9 @@
 }
 
 .proofItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
   padding: var(--space-4);
   background: var(--bg-secondary);
   border: 1px solid var(--border-default);
@@ -198,6 +201,26 @@
   font-weight: 600;
   color: var(--text-secondary);
   transition: all 0.2s;
+  position: relative;
+}
+
+.proofCheckbox {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: all 0.2s;
+}
+
+.proofActive .proofCheckbox {
+  border-color: var(--purple-400);
+  background: var(--purple-400);
+  color: var(--text-inverse);
 }
 
 .proofActive {

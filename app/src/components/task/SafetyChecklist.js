@@ -24,7 +24,7 @@ export default function SafetyChecklist({ items = [], onComplete }) {
             type="checkbox" 
             checked={!!checked[item.id]} 
             onChange={() => toggle(item.id)} 
-            className="hidden"
+            style={{ position: 'absolute', opacity: 0, width: 0, height: 0 }}
           />
           <div className={styles.checkbox}>
             {checked[item.id] && <span className="material-symbols-outlined">check</span>}

@@ -1,10 +1,10 @@
 'use client';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Card, Button, Badge } from '@/components/common/UIAtoms';
 import SafetyChecklist from '@/components/task/SafetyChecklist';
 import RiskPill from '@/components/task/RiskPill';
-import { CATEGORIES, PROOF_TYPES } from '@/utils/constants';
+import { CATEGORIES, PROOF_TYPES, DEFAULT_PROOFS_BY_CATEGORY } from '@/utils/constants';
 import { detectRisk } from '@/utils/riskDetector';
 import { useToast } from '@/context/ToastContext';
 import { tasks as tasksApi } from '@/lib/api';
@@ -32,7 +32,7 @@ export default function CreateTaskPage() {
     deadline: '',
     budget: 20,
     urgency: 'normal',
-    proofType: 'SCREENSHOT',
+    proofTypes: DEFAULT_PROOFS_BY_CATEGORY['PHONE_CALLS'],
     safetyAgreed: false,
   });
   
@@ -44,6 +44,24 @@ export default function CreateTaskPage() {
   }, [formData.title, formData.description]);
 
   const updateForm = (updates) => setFormData(prev => ({ ...prev, ...updates }));
+
+  // Smart defaults: update selected proof types when category changes
+  useEffect(() => {
+    const defaults = DEFAULT_PROOFS_BY_CATEGORY[formData.category] || ['SCREENSHOT'];
+    setFormData(prev => ({ ...prev, proofTypes: defaults }));
+  }, [formData.category]);
+
+  const toggleProofType = (proofId) => {
+    setFormData(prev => {
+      const current = prev.proofTypes;
+      if (current.includes(proofId)) {
+        // Don't allow deselecting the last one
+        if (current.length === 1) return prev;
+        return { ...prev, proofTypes: current.filter(id => id !== proofId) };
+      }
+      return { ...prev, proofTypes: [...current, proofId] };
+    });
+  };
 
   const platformFee = Number(formData.budget) * PLATFORM_FEE_RATE;
   const urgencyFee = formData.urgency === 'urgent' ? Number(formData.budget) * URGENCY_FEE_RATE : 0;
@@ -77,7 +95,7 @@ export default function CreateTaskPage() {
         budget: Number(formData.budget),
         deadline: new Date(formData.deadline).toISOString(),
         urgency: formData.urgency,
-        proofType: formData.proofType,
+        proofTypes: formData.proofTypes,
       });
 
       // Immediately publish (DRAFT → OPEN)
@@ -262,20 +280,32 @@ export default function CreateTaskPage() {
 
               <Card className={styles.proofCard}>
                 <h3 className={styles.sectionTitle}>Required Proof</h3>
-                <p className={styles.subtitle} style={{ marginBottom: '1.5rem' }}>How should the executor prove completion?</p>
+                <p className={styles.subtitle} style={{ marginBottom: '0.5rem' }}>How should the executor prove completion?</p>
+                <p style={{ fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)', marginBottom: '1.5rem' }}>Select one or more formats. Smart defaults are based on your task category.</p>
                 <div className={styles.proofOptions}>
-                  {PROOF_TYPES.map(p => (
-                    <label key={p.id} className={`${styles.proofItem} ${formData.proofType === p.id ? styles.proofActive : ''}`}>
-                      <input 
-                        type="radio" 
-                        name="proof" 
-                        className="hidden" 
-                        checked={formData.proofType === p.id}
-                        onChange={() => updateForm({ proofType: p.id })}
-                      />
-                      <span>{p.label}</span>
-                    </label>
-                  ))}
+                  {PROOF_TYPES.map(p => {
+                    const isSelected = formData.proofTypes.includes(p.id);
+                    return (
+                      <label key={p.id} className={`${styles.proofItem} ${isSelected ? styles.proofActive : ''}`}>
+                        <input 
+                          type="checkbox" 
+                          style={{ position: 'absolute', opacity: 0, width: 0, height: 0 }}
+                          checked={isSelected}
+                          onChange={() => toggleProofType(p.id)}
+                        />
+                        <div className={styles.proofCheckbox}>
+                          {isSelected && <span className="material-symbols-outlined" style={{ fontSize: 16, fontWeight: 800 }}>check</span>}
+                        </div>
+                        <div style={{ flex: 1 }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <span className="material-symbols-outlined" style={{ fontSize: 18, opacity: 0.6 }}>{p.icon}</span>
+                            <span>{p.label}</span>
+                          </div>
+                          <p style={{ fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)', marginTop: '2px' }}>{p.description}</p>
+                        </div>
+                      </label>
+                    );
+                  })}
                 </div>
               </Card>
             </div>
