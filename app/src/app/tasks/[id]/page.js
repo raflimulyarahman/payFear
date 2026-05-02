@@ -43,19 +43,30 @@ export default function TaskDetailPage({ params }) {
   }, [id]);
 
   useEffect(() => {
+    let cancelled = false;
     async function fetchTask() {
       try {
         const data = await tasksApi.get(id);
-        setTask(data);
+        if (!cancelled) setTask(data);
       } catch (err) {
-        addToast('Failed to load task', 'error');
+        if (!cancelled) addToast('Failed to load task', 'error');
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
+      }
+    }
+    async function fetchEscrow() {
+      try {
+        const data = await escrowApi.getStatus(id);
+        if (!cancelled) setEscrowStatus(data);
+      } catch {
+        // Escrow status is optional — don't block UI
       }
     }
     fetchTask();
-    fetchEscrowStatus();
-  }, [id, addToast, fetchEscrowStatus]);
+    fetchEscrow();
+    return () => { cancelled = true; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   if (loading) {
     return (

@@ -9,7 +9,8 @@ const taskBaseSchema = z.object({
   budget: z.number().min(5, 'Minimum budget is $5').max(500, 'Maximum budget is $500'),
   deadline: z.string().datetime(),
   urgency: z.enum(['normal', 'urgent']).default('normal'),
-  proofType: z.enum(['SCREENSHOT', 'PHOTO', 'TEXT', 'VIDEO']),
+  proofType: z.enum(['SCREENSHOT', 'PHOTO', 'TEXT', 'VIDEO']).optional(),
+  proofTypes: z.array(z.enum(['SCREENSHOT', 'PHOTO', 'TEXT', 'VIDEO'])).min(1).optional(),
   specialInstructions: z.string().max(500).optional(),
 });
 

@@ -25,6 +25,8 @@ export function createApp() {
   // ──────────────────────────────────────────────
   // Global middleware
   // ──────────────────────────────────────────────
+  // Trust Railway/Vercel reverse proxy (required for rate limiter & correct client IP)
+  app.set('trust proxy', 1);
   app.use(helmet());
   app.use(
     cors({

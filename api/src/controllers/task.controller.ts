@@ -35,6 +35,9 @@ export async function createTask(
       throw new ContentBlockedError(safety.blockedReasons);
     }
 
+    // Accept both proofTypes (array) and proofType (single) from frontend
+    const resolvedProofType = input.proofTypes?.[0] || input.proofType || 'SCREENSHOT';
+
     const task = await prisma.task.create({
       data: {
         title: input.title,
@@ -48,7 +51,7 @@ export async function createTask(
         totalCost,
         deadline: new Date(input.deadline),
         urgency: input.urgency,
-        proofType: input.proofType,
+        proofType: resolvedProofType,
         specialInstructions: input.specialInstructions,
         riskLevel: safety.riskLevel,
         riskFlags: safety.flags.concat(safety.blockedReasons),

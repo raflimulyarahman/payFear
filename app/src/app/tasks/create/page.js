@@ -68,8 +68,13 @@ export default function CreateTaskPage() {
   const totalCost = Number(formData.budget) + platformFee + urgencyFee;
 
   const next = () => {
-    if (step === 1 && (!formData.title || !formData.description)) {
-      return addToast('Please fill in all fields', 'error');
+    if (step === 1) {
+      if (!formData.title || formData.title.length < 5) {
+        return addToast('Title must be at least 5 characters', 'error');
+      }
+      if (!formData.description || formData.description.length < 20) {
+        return addToast('Description must be at least 20 characters', 'error');
+      }
     }
     if (step === 2 && (!formData.deadline || !formData.budget)) {
       return addToast('Please set logistics', 'error');
@@ -104,7 +109,13 @@ export default function CreateTaskPage() {
       addToast('Task created and published successfully!', 'success');
       router.push('/dashboard');
     } catch (err) {
-      addToast(err.message || 'Failed to create task', 'error');
+      // Show specific validation details if available
+      const details = err.details;
+      if (details && Array.isArray(details) && details.length > 0) {
+        addToast(details.map(d => d.message).join(', '), 'error');
+      } else {
+        addToast(err.message || 'Failed to create task', 'error');
+      }
     } finally {
       setSubmitting(false);
     }

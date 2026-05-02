@@ -21,7 +21,7 @@ export default function Sidebar() {
         <Link href="/dashboard" className={styles.logo}>PayFear</Link>
         {user && (
           <span className={styles.roleBadge}>
-            {user.role === 'requester' ? 'Requester' : 'Executor'}
+            {user.role === 'REQUESTER' ? 'Requester' : 'Executor'}
           </span>
         )}
       </div>
@@ -30,7 +30,7 @@ export default function Sidebar() {
         {NAV_ITEMS.map(item => {
           const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
           // Hide "Create Task" for executor, de-emphasize "Browse" for requester
-          if (item.href === '/tasks/create' && user?.role === 'executor') return null;
+          if (item.href === '/tasks/create' && user?.role === 'EXECUTOR') return null;
           return (
             <Link
               key={item.href}
@@ -50,14 +50,18 @@ export default function Sidebar() {
         {user && (
           <>
             <div className={styles.userInfo}>
-              <img src={user.avatar} alt={user.name} className={styles.avatar} />
+              <img 
+                src={user.avatarUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=6c3baa&color=fff&size=80`} 
+                alt={user.name} 
+                className={styles.avatar} 
+              />
               <div>
                 <p className={styles.userName}>{user.name}</p>
                 <p className={styles.userRole}>{user.role}</p>
               </div>
             </div>
             <button onClick={switchRole} className={styles.switchBtn}>
-              Switch to {user.role === 'requester' ? 'Executor' : 'Requester'}
+              Switch to {user.role === 'REQUESTER' ? 'Executor' : 'Requester'}
             </button>
             <button onClick={logout} className={styles.logoutBtn}>
               <span className="material-symbols-outlined" style={{ fontSize: 18 }}>logout</span>
